@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/rain-js/modo/issues"
   },
-  "homepage": "https://github.com/rain-js/modo#readme"
+  "homepage": "https://github.com/rain-js/modo#readme",
+  "dependencies": {
+    "vue": "^2.5.16"
+  }
 }
