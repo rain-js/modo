@@ -32,12 +32,27 @@
             margin: 30px;
         }
     </style>
+    <style>
+        .icon {
+            width: 1em;
+            height: 1em;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <m-button></m-button>
+        <m-button icon="setting">
+            设置
+        </m-button>
+        <m-button icon="left" icon-position="left">
+            上一页
+        </m-button>
+        <m-button icon="download" icon-position="right">
+            下载
+        </m-button>
     </div>
 
     <script src="./src/app.js"></script>
+    <script src="//at.alicdn.com/t/font_730956_zgix66c814p.js"></script>
 </body>
 </html>

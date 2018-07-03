@@ -1,9 +1,28 @@
 <template>
-    <button class="m-button">按钮1</button>
+    <button class="m-button" :class="`icon-${iconPosition}`">
+        <svg class="icon" aria-hidden="true">
+            <use :xlink:href="`#i-${icon}`"></use>
+        </svg>
+        <span class="content">
+            <slot></slot>
+        </span>
+    </button>
 </template>
 
 <script>
-    export default {}
+    export default {
+        // props: ['icon', 'iconPosition']
+        props: {
+            icon: {},
+            iconPosition: {
+                type: String,
+                default: 'left',
+                validator(value) {
+                    return !(value !== 'left' && value !== 'right')
+                }
+            }
+        }
+    }
 </script>
 
 <style lang="scss">
@@ -14,7 +33,10 @@
         border-radius: var(--border-radius);
         border: 1px solid var(--border-color);
         background: var(--button-bg);
-
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: top;
         &:hover {
             border-color: var(--border-color-hover);
         }
@@ -23,6 +45,26 @@
         }
         &:focus {
             outline: none;
+        }
+    }
+
+    .icon-left {
+        > .icon {
+            order: 1;
+            margin-right: .3em;
+        }
+        > .content {
+            order: 2;
+        }
+    }
+
+    .icon-right {
+        > .icon {
+            margin-left: .3em;
+            order: 2;
+        }
+        > .content {
+            order: 1;
         }
     }
 
