@@ -1,6 +1,7 @@
 <template>
     <button class="m-button" :class="`icon-${iconPosition}`">
         <g-icon v-if="icon" :name="icon"></g-icon>
+        <g-icon v-if="icon" name="loading" class="loading"></g-icon>
         <span class="content">
             <slot></slot>
         </span>
@@ -24,6 +25,13 @@
 </script>
 
 <style lang="scss">
+    @keyframes spin {
+        0% { transform: rotate(0);}
+        100% { transform: rotate(360deg);}
+    }
+    .loading {
+        animation: spin 1s infinite linear;
+    }
     .m-button {
         height: var(--button-height);
         padding: 0 1em;
@@ -65,5 +73,7 @@
             order: 1;
         }
     }
+
+
 
 </style>
